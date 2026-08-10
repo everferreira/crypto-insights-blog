@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Crypto Insights — Análise de Mercado & Airdrops</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
-        h1 { color: #58a6ff; font-size: 2em; margin-bottom: 5px; }
-        h2 { color: #58a6ff; margin: 30px 0 15px; border-bottom: 1px solid #30363d; padding-bottom: 8px; }
-        .subtitle { color: #8b949e; margin-bottom: 20px; }
-        a { color: #58a6ff; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .post { border: 1px solid #30363d; padding: 20px; margin: 15px 0; border-radius: 8px; background: #161b22; transition: border-color 0.2s; }
-        .post:hover { border-color: #58a6ff; }
-        .post h3 { margin-bottom: 8px; }
-        .post h3 a { color: #f0f6fc; }
-        .post h3 a:hover { color: #58a6ff; }
-        .date { color: #8b949e; font-size: 0.85em; margin-bottom: 8px; }
-        .desc { color: #8b949e; font-size: 0.95em; margin-bottom: 10px; }
-        .tags { display: flex; flex-wrap: wrap; gap: 5px; }
-        .tag { display: inline-block; background: #21262d; color: #c9d1d9; padding: 3px 10px; border-radius: 12px; font-size: 0.8em; border: 1px solid #30363d; }
-        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #30363d; color: #8b949e; font-size: 0.85em; text-align: center; }
-        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0; }
-        .stat-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 15px; text-align: center; }
-        .stat-card .value { font-size: 1.5em; color: #58a6ff; font-weight: bold; }
-        .stat-card .label { font-size: 0.85em; color: #8b949e; margin-top: 5px; }
-        .affiliate-box { background: #1a2332; border: 1px solid #30363d; border-radius: 8px; padding: 15px; margin: 20px 0; }
-        .affiliate-box h3 { color: #58a6ff; margin-bottom: 10px; }
-        .affiliate-box ul { list-style: none; }
-        .affiliate-box li { margin: 8px 0; }
-        .affiliate-box a { display: inline-block; background: #21262d; padding: 5px 12px; border-radius: 6px; border: 1px solid #30363d; transition: border-color 0.2s; }
-        .affiliate-box a:hover { border-color: #58a6ff; background: #1a2332; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crypto Insights - Market Analysis & Airdrops</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; max-width:900px; margin:0 auto; padding:20px; background:#0d1117; color:#c9d1d9; }
+h1 { color:#58a6ff; font-size:2em; }
+h2 { color:#58a6ff; margin:30px 0 15px; border-bottom:1px solid #30363d; padding-bottom:8px; }
+a { color:#58a6ff; text-decoration:none; }
+a:hover { text-decoration:underline; }
+.subtitle { color:#8b949e; margin-bottom:20px; }
+.post { border:1px solid #30363d; padding:20px; margin:15px 0; border-radius:8px; background:#161b22; }
+.post:hover { border-color:#58a6ff; }
+.post h3 a { color:#f0f6fc; }
+.date { color:#8b949e; font-size:0.85em; }
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:15px; margin:20px 0; }
+.stat-card { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:15px; text-align:center; }
+.stat-card .value { font-size:1.5em; color:#58a6ff; font-weight:bold; }
+.stat-card .label { font-size:0.85em; color:#8b949e; margin-top:5px; }
+.affiliate-box { background:#1a2332; border:1px solid #30363d; border-radius:8px; padding:15px; margin:20px 0; }
+.affiliate-box h3 { color:#58a6ff; margin-bottom:10px; }
+.affiliate-box ul { list-style:none; padding:0; }
+.affiliate-box li { margin:8px 0; }
+.affiliate-box a { display:inline-block; background:#21262d; padding:5px 12px; border-radius:6px; border:1px solid #30363d; }
+.affiliate-box a:hover { border-color:#58a6ff; text-decoration:none; }
+.footer { margin-top:40px; padding-top:20px; border-top:1px solid #30363d; color:#8b949e; font-size:0.85em; text-align:center; }
+</style>
 </head>
 <body>
-    <h1>🚀 Crypto Insights</h1>
-    <p class="subtitle">Análises automáticas de mercado cripto, guias de airdrop e estratégias de farming geradas por IA.</p>
-
-    <div class="stats">
-        <div class="stat-card"><div class="value">9</div><div class="label">Artigos Publicados</div></div>
-        <div class="stat-card"><div class="value">12</div><div class="label">Protocolos Ativos</div></div>
-        <div class="stat-card"><div class="value">26</div><div class="label">Carteiras Farmando</div></div>
-        <div class="stat-card"><div class="value">587+</div><div class="label">Interações Testnet</div></div>
-    </div>
-
-    <div class="affiliate-box">
-        <h3>💰 Exchanges Recomendadas</h3>
-        <p style="margin-bottom:12px;color:#8b949e;font-size:0.9em;">Compre cripto com segurança e apoie nosso conteúdo:</p>
-        <ul>
-            <li><a href="https://www.binance.com/pt-BR/activity/referral/offers/claim?ref=CPA_002NVKNP7X">🔥 Binance</a> — Maior exchange do mundo, aceita PIX no Brasil</li>
-            <li><a href="https://mercadobitcoin.com.br">🇧🇷 Mercado Bitcoin</a> — Exchange brasileira, depósito via PIX</li>
-            <li><a href="https://www.bybit.com">⚡ Bybit</a> — Exchange de derivativos com bônus de até $30.000</li>
-            <li><a href="https://shop.ledger.com">🔒 Ledger</a> — Carteira física para armazenar cripto com segurança</li>
-        </ul>
-    </div>
-
-    <h2>📰 Últimos Artigos</h2>
+<h1>Crypto Insights</h1>
+<p class="subtitle">Automated crypto market analysis, airdrop guides, and farming strategies generated by AI.</p>
+<div class="stats">
+<div class="stat-card"><div class="value">9</div><div class="label">Articles Published</div></div>
+<div class="stat-card"><div class="value">26</div><div class="label">Active Wallets</div></div>
+<div class="stat-card"><div class="value">8</div><div class="label">Networks Farmed</div></div>
+<div class="stat-card"><div class="value">587+</div><div class="label">Testnet Interactions</div></div>
+</div>
+<div class="affiliate-box">
+<h3>Recommended Exchanges</h3>
+<ul>
+<li><a href="https://www.binance.com/pt-BR/activity/referral/offers/claim?ref=CPA_002NVKNP7X">Binance</a> - World's largest exchange, accepts PIX in Brazil</li>
+<li><a href="https://mercadobitcoin.com.br">Mercado Bitcoin</a> - Brazilian exchange, deposit via PIX</li>
+<li><a href="https://shop.ledger.com">Ledger</a> - Hardware wallet for secure crypto storage</li>
+</ul>
+</div>
+<h2>Latest Articles</h2>
+<div class="post"><h3><a href="20260810_0800_market-analysis.html">Análise de Mercado Cripto — 10/08/2026</a></h3><div class="date">10/08/2026</div></div>
+<div class="post"><h3><a href="20260810_0800_base-farming.html">Farming na Base Chain — Guia 2026</a></h3><div class="date">10/08/2026</div></div>
+<div class="post"><h3><a href="20260810_0800_airdrop-guide.html">Guia de Airdrops — 10/08/2026</a></h3><div class="date">10/08/2026</div></div>
+<div class="post"><h3><a href="20260809_0800_market-analysis.html">Análise de Mercado Cripto — 09/08/2026</a></h3><div class="date">09/08/2026</div></div>
+<div class="post"><h3><a href="20260809_0800_base-farming.html">Farming na Base Chain — Guia 2026</a></h3><div class="date">09/08/2026</div></div>
+<div class="post"><h3><a href="20260809_0800_airdrop-guide.html">Guia de Airdrops — 09/08/2026</a></h3><div class="date">09/08/2026</div></div>
+<div class="post"><h3><a href="20260808_1741_market-analysis.html">Análise de Mercado Cripto — 08/08/2026</a></h3><div class="date">08/08/2026</div></div>
+<div class="post"><h3><a href="20260808_1741_base-farming.html">Farming na Base Chain — Guia 2026</a></h3><div class="date">08/08/2026</div></div>
+<div class="post"><h3><a href="20260808_1741_airdrop-guide.html">Guia de Airdrops — 08/08/2026</a></h3><div class="date">08/08/2026</div></div>
+<div class="footer">
+<p>Generated automatically by AI agents on 10/08/2026 14:49 UTC. Informational content - not financial advice.</p>
+</div>
 </body>
 </html>
