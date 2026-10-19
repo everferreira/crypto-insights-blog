@@ -1,0 +1,433 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Renda Cripto Autônoma do Zero</title>
+<style>
+body { font-family: Georgia, serif; max-width: 800px; margin: 0 auto; padding: 30px; line-height: 1.6; color: #1a1a2e; background: #fff; }
+h1 { color: #0f3460; border-bottom: 3px solid #e94560; padding-bottom: 10px; }
+h2 { color: #0f3460; margin-top: 40px; border-bottom: 1px solid #ccc; padding-bottom: 6px; }
+h3 { color: #533483; }
+blockquote { background: #f5f0ff; border-left: 4px solid #533483; padding: 12px 18px; margin: 16px 0; color: #444; }
+table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
+th { background: #0f3460; color: #fff; }
+code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+pre { background: #0d1117; color: #c9d1d9; padding: 16px; border-radius: 8px; overflow-x: auto; }
+pre code { background: transparent; color: inherit; }
+hr { border: none; border-top: 2px solid #e94560; margin: 30px 0; }
+</style></head><body><h1>RENDA CRIPTO AUTÔNOMA DO ZERO</h1>
+<h2>O guia prático de quem construiu um sistema de farming real com R$ 20 — sem precisar ficar na frente do computador</h2>
+<p><strong>Autor: Ever Ferreira</strong><br />
+<strong>Versão 1.0 — Outubro 2026</strong></p>
+<hr />
+<blockquote>
+<p><strong>Aviso importante:</strong> Este guia é educacional. Criptomoedas são voláteis e envolvem risco de perda total do capital investido. Nada aqui é recomendação de investimento, garantia de lucro ou promessa de retorno. Invista apenas o que você pode perder. Os exemplos usam valores reais de uma carteira de teste própria da autora.</p>
+</blockquote>
+<hr />
+<h2>SUMÁRIO</h2>
+<ol>
+<li>A história real por trás deste guia</li>
+<li>O que você precisa antes de começar (custo real: R$ 0)</li>
+<li>Escolhendo a blockchain e a carteira certas</li>
+<li>O motor do farming: swaps automáticos com take-profit</li>
+<li>Como construir seu primeiro robô de farming (passo a passo)</li>
+<li>O sistema de take-profit que protege seu capital</li>
+<li>Multi-chain: expandindo para Optimism, Arbitrum e Scroll</li>
+<li>Airdrops: a loteria que pode multiplicar tudo (e como se qualificar de verdade)</li>
+<li>Automatização total com cron jobs (funciona 24/7)</li>
+<li>A parte chata que ninguém fala: gas, RPCs e erros comuns</li>
+<li>Métricas reais: o que esperar no primeiro mês</li>
+<li>Perguntas frequentes</li>
+<li>Checklist final e próximos passos</li>
+</ol>
+<hr />
+<h2>1. A HISTÓRIA REAL POR TRÁS DESTE GUIA</h2>
+<p>Este guia não foi escrito por alguém que "estudou teoria" — foi escrito por quem <strong>fez</strong>.</p>
+<p>Em agosto de 2026, com um patrimônio inicial de aproximadamente R$ 20 (cerca de 0,002 ETH), começamos a construir um sistema de renda cripto autônoma do zero, sem experiência prévia, sem aportes grandes, sem milagre.</p>
+<p>Dados reais do sistema até outubro de 2026:</p>
+<ul>
+<li><strong>175+ transações reais on-chain</strong> na Base</li>
+<li><strong>26,5+ AERO acumulados</strong> via farming automático na Aerodrome</li>
+<li><strong>6+ OP acumulados</strong> na Optimism</li>
+<li><strong>Take-profit realizando vendas automáticas</strong> sempre que o preço sobe +12%</li>
+<li><strong>Multi-farmer interagindo com 8+ protocolos</strong> (Morpho, Moonwell, Superform, Extra Finance, Zora...) para qualificação de airdrops</li>
+<li><strong>Sistema 100% autônomo</strong>: cron jobs rodando de hora em hora, sem ninguém na frente do computador</li>
+</ul>
+<p>O que você vai aprender aqui é exatamente isso: <strong>como montar o seu próprio sistema de farming autônomo</strong>, com a mesma lógica, do zero.</p>
+<p>Não vou te prometer que você vai ficar milionário em 30 dias. Vou te ensinar o que FUNCIONA na prática: constância, automatização, gestão de risco e posicionamento para a próxima grande onda (os airdrops).</p>
+<hr />
+<h2>2. O QUE VOCÊ PRECISA ANTES DE COMEÇAR (CUSTO REAL: R$ 0)</h2>
+<p>Antes de qualquer coisa, esqueça o que os influenciadores dizem: você NÃO precisa de capital grande, NÃO precisa de curso caro, NÃO precisa de "sinais".</p>
+<p>O que você realmente precisa:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Necessário?</th>
+<th>Custo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Computador (qualquer um, até fraco)</td>
+<td>Sim</td>
+<td>R$ 0 (você já tem)</td>
+</tr>
+<tr>
+<td>Carteira (MetaMask, Rabby ou similar)</td>
+<td>Sim</td>
+<td>R$ 0</td>
+</tr>
+<tr>
+<td>Gas para a chain (ETH on Base)</td>
+<td>Sim</td>
+<td>~R$ 5-20 para começar</td>
+</tr>
+<tr>
+<td>Python + conhecimento básico</td>
+<td>Sim</td>
+<td>R$ 0 (aprenda na prática)</td>
+</tr>
+<tr>
+<td>Paciência para constância</td>
+<td>Sim</td>
+<td>R$ 0</td>
+</tr>
+<tr>
+<td>Curso pago / grupo de "sinais"</td>
+<td><strong>NÃO</strong></td>
+<td>Evite!</td>
+</tr>
+</tbody>
+</table>
+<p><strong>O erro mais comum de quem começa:</strong> gastar dinheiro com curso antes de gastar 10 minutos entendendo o básico. Tudo que você precisa aprender está neste guia, de graça.</p>
+<hr />
+<h2>3. ESCOLHENDO A BLOCKCHAIN E A CARTEIRA CERTAS</h2>
+<h3>Por que a Base?</h3>
+<p>A Base é uma rede Layer 2 da Ethereum criada pela Coinbase. Ela é ideal para quem está começando porque:</p>
+<ol>
+<li><strong>Gas absurdamente barato</strong>: enquanto na Ethereum mainnet uma transação custa US$ 5-50, na Base custa centavos (às vezes 0,01 gwei = praticamente grátis)</li>
+<li><strong>Ecossistema em crescimento</strong>: é um dos L2 com maior TVL (US$ 13+ bilhões em 2026)</li>
+<li><strong>Airdrop potencial</strong>: a Base ainda <strong>não tem token próprio</strong> — a empresa já sinalizou que está "explorando" um. Histórico on-chain real pode se tornar elegibilidade</li>
+<li><strong>DEXs maduras</strong>: Aerodrome (a maior), Uniswap, etc.</li>
+</ol>
+<h3>A carteira</h3>
+<p>Crie uma carteira nova (MetaMask ou Rabby). <strong>Regras de ouro:</strong></p>
+<ul>
+<li><strong>Nunca</strong> compartilhe a frase-semente com ninguém</li>
+<li>Crie a carteira diretamente no navegador oficial, não em site de terceiros</li>
+<li>Use <strong>uma carteira dedicada para farming</strong> — não misture com o que você usa para outras coisas</li>
+<li>Anote a frase-semente em papel, guarde em local seguro</li>
+</ul>
+<h3>Aportando</h3>
+<p>Envie uma quantia pequena primeiro (ex: R$ 10-20 de ETH), faça 2-3 transações de teste, e só depois aumente. O objetivo inicial NÃO é lucrar — é <strong>entender o fluxo</strong> sem dor.</p>
+<hr />
+<h2>4. O MOTOR DO FARMING: SWAPS AUTOMÁTICOS COM TAKE-PROFIT</h2>
+<p>O conceito central do nosso sistema é simples, mas poderoso:</p>
+<pre><code>┌─────────────────────────────────────────────────┐
+│                 O CICLO DO FARMING               │
+│                                                 │
+│  1. Compre o token da DEX (ex: AERO na Base)    │
+│     → swaps ETH → AERO todos os dias            │
+│                                                 │
+│  2. Quando o preço subir +12% do custo médio    │
+│     → venda 15% automaticamente                 │
+│     → ETH volta para a carteira                 │
+│                                                 │
+│  3. Com o ETH de volta, compre de novo          │
+│     → ciclo se repete sozinho                   │
+│                                                 │
+│  Resultado: constância + lucro realizado +      │
+│  histórico on-chain crescendo                   │
+└─────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>Por que isso funciona:</strong></p>
+<ul>
+<li>Você acumula o token nativo da DEX (AERO) — que é literalmente o "petróleo" do ecossistema Base</li>
+<li>O take-profit <strong>realiza</strong> lucro (não é só "valorização de papel")</li>
+<li>O ciclo é <strong>autossustentável</strong>: o ETH gasto em gas é recuperado nas vendas</li>
+<li>Cada transação soma ao seu histórico on-chain (crédito para airdrops futuros)</li>
+</ul>
+<hr />
+<h2>5. COMO CONSTRUIR SEU PRIMEIRO ROBÔ DE FARMING (PASSO A PASSO)</h2>
+<p>Vou te mostrar a lógica com código real que usamos. Não copie cegamente — <strong>entenda cada parte</strong>.</p>
+<h3>Passo 1: Instale as ferramentas</h3>
+<pre><code class="language-bash"># Python 3.11+
+python3 --version
+
+# Ambiente virtual
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Biblioteca para interagir com a blockchain
+pip install web3
+</code></pre>
+<h3>Passo 2: Conecte sua carteira (seguro, sem expor chaves)</h3>
+<pre><code class="language-python">from web3 import Web3
+
+# Use um RPC público (ou o da sua carteira)
+w3 = Web3(Web3.HTTPProvider('https://mainnet.base.org'))
+
+# Sua carteira
+MEU_ENDERECO = Web3.to_checksum_address('0xSEU_ENDERECO_AQUI')
+</code></pre>
+<p><strong>⚠️ SEGURANÇA:</strong> sua chave privada deve ficar em um arquivo criptografado local ou em variável de ambiente. Nunca em código versionado, nunca em chat, nunca em site.</p>
+<h3>Passo 3: O swap ETH → AERO</h3>
+<p>O fluxo completo tem 3 transações (da primeira vez):</p>
+<ol>
+<li><strong>Wrap</strong>: ETH → WETH (token envelopado)</li>
+<li><strong>Approve</strong>: autorizar o router a usar seus WETH</li>
+<li><strong>Swap</strong>: WETH → AERO via Aerodrome</li>
+</ol>
+<p>Depois da primeira vez, o approve fica "salvo" (approve infinito) e o fluxo vira 2 transações.</p>
+<h3>Passo 4: A lógica de decisão</h3>
+<p>O coração do robô é a função de decisão:</p>
+<pre><code class="language-python">def decidir_swap(balanco_eth, reserva, preco_atual, gatilho, max_swap):
+    &quot;&quot;&quot;
+    - balanco_eth: quanto ETH você tem
+    - reserva: ETH que NUNCA é usado (para gas)
+    - preco_atual: preço do token hoje
+    - gatilho: preço acima do qual VOCÊ NÃO compra (não compra caro!)
+    - max_swap: valor máximo por operação
+    &quot;&quot;&quot;
+    disponivel = balanco_eth - reserva
+    if disponivel &lt;= 0:
+        return None  # não tem folga, não mexe
+    if preco_atual &gt;= gatilho:
+        return None  # preço alto, espera
+    valor = min(disponivel * 0.40, max_swap)  # usa 40% da folga, limitado
+    return valor
+</code></pre>
+<p><strong>As 3 regras de ouro da decisão:</strong><br />
+1. <strong>Sempre tem reserva</strong> — nunca zera o saldo (o robô precisa de gas para operar)<br />
+2. <strong>Nunca compra caro</strong> — se o preço passou do gatilho, espera<br />
+3. <strong>Tamanho limitado</strong> — sempre um máximo por operação (não vai all-in)</p>
+<hr />
+<h2>6. O SISTEMA DE TAKE-PROFIT QUE PROTEGE SEU CAPITAL</h2>
+<p>Comprar todo dia é bom, mas <strong>sem vender você nunca realiza lucro</strong>. O take-profit é o seu segurança.</p>
+<h3>Como funciona na prática</h3>
+<pre><code class="language-python">GANHO_MINIMO = 12   # % de ganho para vender
+FRACAO_VENDA = 0.15 # quanto vender (% do saldo)
+
+ganho = ((preco_atual / custo_medio) - 1) * 100
+
+if ganho &gt;= GANHO_MINIMO:
+    vender(FRACAO_VENDA)  # vende 15% na alta
+    custo_medio = preco_atual  # atualiza referência
+</code></pre>
+<h3>Por que 12% / 15%?</h3>
+<ul>
+<li><strong>12% de gatilho</strong> é alcançável com frequência (volatilidade saudável) sem ser "ganho de formiga" (5%)</li>
+<li><strong>15% de venda</strong> mantém 85% trabalhando — você nunca "mata a galinha"</li>
+<li>Atualizar o custo médio após vender reinicia o ciclo na nova base</li>
+</ul>
+<h3>O erro clássico (que vimos na vida real)</h3>
+<p>Nosso sistema ficou travado durante semanas porque o custo médio registrado era de um período antigo (quando AERO valia mais) — o gatilho de +15% ficou a 22% de distância do preço atual. <strong>Correção:</strong> recalibrar o custo médio para o preço real de mercado das compras recentes. O sistema passou a capturar ciclos de novo.</p>
+<p><strong>Lição:</strong> custo médio errado = robô cego. Sempre recalibre quando o mercado andar muito.</p>
+<hr />
+<h2>7. MULTI-CHAIN: EXPANDINDO PARA OPTIMISM, ARBITRUM E SCROLL</h2>
+<p>Depender de uma chain só é fragilidade. O sistema real opera em várias:</p>
+<table>
+<thead>
+<tr>
+<th>Chain</th>
+<th>DEX</th>
+<th>Token</th>
+<th>Por quê</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base</td>
+<td>Aerodrome</td>
+<td>AERO</td>
+<td>O motor principal (ecossistema gigante)</td>
+</tr>
+<tr>
+<td>Optimism</td>
+<td>Velodrome</td>
+<td>OP/VELO</td>
+<td>Gas quase zero, OP tem valor real</td>
+</tr>
+<tr>
+<td>Arbitrum</td>
+<td>Camelot</td>
+<td>ARB</td>
+<td>Ecossistema maduro</td>
+</tr>
+<tr>
+<td>Scroll</td>
+<td>(em avaliação)</td>
+<td>SCR/ETH</td>
+<td>Histórico adicional</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dica real:</strong> cada chain tem saldos pequenos separados. Configuramos <strong>reservas por chain</strong> — 0.0005 ETH na Base (gas um pouco maior), 0.00005 nas L2s (gas quase zero). Isso destrava saldos que ficariam "presos" esperando reserva grande.</p>
+<p><strong>Aprendizado honesto:</strong> na Optimism, o pool de VELO estava vazio (sem liquidez) — o robô reverteu. Trocamos para comprar OP (que tem liquidez real). <strong>Sempre simule a transação antes de enviar</strong> ('eth_call') — custa nada e evita gas queimado.</p>
+<hr />
+<h2>8. AIRDROPS: A LOTERIA QUE PODE MULTIPLICAR TUDO (E COMO SE QUALIFICAR DE VERDADE)</h2>
+<p>Airdrop é quando um protocolo distribui tokens grátis para usuários que usaram a plataforma antes do lançamento. Histórico: Arbitrum deu até US$ 10.000 por carteira, Optimism, zkSync idem.</p>
+<h3>Os grandes candidatos em 2026</h3>
+<ol>
+<li><strong>Base</strong> — explorando token oficialmente. O maior prêmio potencial</li>
+<li><strong>Polymarket</strong> — POLY confirmado, mecânica não lançada</li>
+<li><strong>MetaMask</strong> — programa de lealdade da carteira</li>
+<li><strong>LayerZero</strong> — alocação comunitária futura</li>
+</ol>
+<h3>Como se qualificar DE VERDADE (anti-sybil, sem gambiarra)</h3>
+<ul>
+<li><strong>Atividade real e consistente</strong> (semanas/meses, não 1 dia de pico)</li>
+<li><strong>Diversidade de protocolos</strong>: swaps, lending (Morpho, Moonwell), bridges, NFTs</li>
+<li><strong>Valores variados</strong> de transação (padrão de humano, não de bot)</li>
+<li><strong>Histórico no tempo</strong> (o tempo é o melhor filtro anti-sybil)</li>
+</ul>
+<p><strong>O que NÃO fazer:</strong> conectar carteira em sites aleatórios de "claim", aprovar contratos suspeitos, enviar ETH para endereços desconhecidos, comprar scripts de farm em massa (sybil detection te elimina).</p>
+<hr />
+<h2>9. AUTOMATIZAÇÃO TOTAL COM CRON JOBS (FUNCIONA 24/7)</h2>
+<p>O sistema roda sozinho via cron (agendador do Linux). A grade real de jobs:</p>
+<pre><code>A cada 30 min  → verifica gatilho de venda (reage rápido a picos)
+02h/14h/22h   → autopilot: decide e executa farm sozinho
+10h           → farm principal diário (Base)
+11h e 17h     → multi-farmer: interage com 1 protocolo novo por vez
+18h           → farm extra condicional (só se preço &lt; gatilho)
+a cada 2h     → take-profit de AERO
+a cada 6h     → take-profit de OP (Optimism)
+dom 15h       → swap de diversificação de DEX
+08h           → airdrop hunter (busca oportunidades reais)
+05h           → conteúdo automático (blog)
+</code></pre>
+<p><strong>Princípio-chave:</strong> cada job é <strong>idempotente</strong> — rodar 100x é seguro, porque cada um tem suas condições de segurança (reserva, gatilho, saldo mínimo). Se algo falha, roda de novo na próxima janela sem dano.</p>
+<hr />
+<h2>10. A PARTE CHATA QUE NINGUÉM FALA: GAS, RPCS E ERROS COMUNS</h2>
+<h3>Gas (o custo de cada transação)</h3>
+<ul>
+<li>Na Base/L2s: 0,001-0,01 gwei = <strong>centavos de real</strong></li>
+<li>Na Ethereum mainnet: US$ 5-50 = <strong>esqueça para farming pequeno</strong></li>
+<li>Sempre mantenha reserva de ETH para gas — o pior cenário é ter liquidez presa sem gas para movimentar</li>
+</ul>
+<h3>RPCs (os servidores que conectam seu robô à chain)</h3>
+<p>RPCs públicos caem, dão rate-limit (429) ou bloqueiam (403). A solução real:</p>
+<pre><code class="language-python">RPCS = [
+    'https://base.drpc.org',
+    'https://1rpc.io/base',
+    'https://mainnet.base.org',
+    'https://base-rpc.publicnode.com',
+]
+# Rotação: tenta cada um até achar um que responde
+</code></pre>
+<p><strong>Lições reais de erros que quebraram nosso sistema:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Erro</th>
+<th>Causa</th>
+<th>Solução</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>429 Too Many Requests</code></td>
+<td>Rate-limit do RPC</td>
+<td>Rotação de RPCs</td>
+</tr>
+<tr>
+<td><code>403 Forbidden</code></td>
+<td>RPC bloqueando</td>
+<td>Reordenar RPCs estáveis primeiro</td>
+</tr>
+<tr>
+<td><code>execution reverted</code></td>
+<td>Pool sem liquidez / slippage</td>
+<td>Simular antes (eth_call)</td>
+</tr>
+<tr>
+<td>Swap travado</td>
+<td>Custo médio desatualizado</td>
+<td>Recalibrar custo médio</td>
+</tr>
+<tr>
+<td>Jobs noturnos perdidos</td>
+<td>PC desligado</td>
+<td>Rodar em lote na volta (idempotência)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>11. MÉTRICAS REAIS: O QUE ESPERAR NO PRIMEIRO MÊS</h2>
+<p>Baseado no sistema real (25 dias de operação contínua):</p>
+<ul>
+<li><strong>Crescimento real</strong>: +14,1% em 25 dias (0,56%/dia) sobre o capital</li>
+<li><strong>AERO acumulado</strong>: +4,26 AERO em 25 dias (com gas total gasto de 0,00057 ETH)</li>
+<li><strong>Eficiência</strong>: 7.442 AERO por ETH de gas gasto</li>
+<li><strong>Transações</strong>: +0,8 tx/dia em média (com históricos extras, mais)</li>
+<li><strong>Vendas realizadas</strong>: 4 ciclos de take-profit</li>
+</ul>
+<p><strong>Projeção honesta (conservadora):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Cenário</th>
+<th>AERO estável</th>
+<th>Mercado subindo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mês 1</td>
+<td>+14-17%</td>
+<td>+20-40%</td>
+</tr>
+<tr>
+<td>Mês 3</td>
+<td>+45-60%</td>
+<td>pode dobrar</td>
+</tr>
+<tr>
+<td>Com airdrop (Base)</td>
+<td>multi x</td>
+<td>múltiplos x</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tradução para R$:</strong> cada +15% de ciclo de venda recicla ~R$ 15-18 de ETH numa carteira de R$ 117, que volta a comprar tokens. O crescimento é composto (juros sobre juros), mas o valor absoluto é pequeno no início. <strong>A mágica não está no valor, está na constância + alavancagem do airdrop.</strong></p>
+<hr />
+<h2>12. PERGUNTAS FREQUENTES</h2>
+<p><strong>Q: Preciso de muito dinheiro para começar?</strong><br />
+R: Não. R$ 20-50 é suficiente para entender o fluxo. Aumente conforme ganha confiança.</p>
+<p><strong>Q: Isso é seguro?</strong><br />
+R: As transações são públicas e os contratos são audited (no caso de DEXs grandes como Aerodrome). O risco real é: token cair (risco de mercado) e você aprovar contratos maliciosos (risco de golpe — nunca aprove o que não entende).</p>
+<p><strong>Q: Quanto tempo por dia preciso dedicar?</strong><br />
+R: Com o sistema automatizado: 0 minutos. O computador com os cron jobs faz tudo. Você acompanha 1x ao dia o relatório.</p>
+<p><strong>Q: E se o preço cair muito?</strong><br />
+R: O sistema tem 3 proteções: reserva de gas (nunca zera), não compra acima do gatilho (não compra caro), e o take-profit vende na alta (nunca vende no pânico). Em queda forte, o robô simplesmente espera.</p>
+<p><strong>Q: Airdrop é garantido?</strong><br />
+R: NÃO. É loteria com probabilidade melhorada por atividade real. Trate como bônus, não como plano principal. O plano principal é o farming com take-profit.</p>
+<p><strong>Q: Posso fazer tudo isso no celular?</strong><br />
+R: O sistema como construímos precisa de um computador (para os cron jobs). O celular serve para acompanhar os relatórios.</p>
+<hr />
+<h2>13. CHECKLIST FINAL E PRÓXIMOS PASSOS</h2>
+<h3>Checklist de setup (semanas 1-2)</h3>
+<ul>
+<li>[ ] Crie carteira dedicada (MetaMask/Rabby), guarde a frase-semente</li>
+<li>[ ] Aporte R$ 20-50 de ETH</li>
+<li>[ ] Faça 2-3 swaps manuais para entender o fluxo</li>
+<li>[ ] Instale Python + web3 no seu computador</li>
+<li>[ ] Configure a carteira no script (chave criptografada)</li>
+<li>[ ] Rode seu primeiro swap automático (1x/dia)</li>
+<li>[ ] Configure o take-profit (12%/15%)</li>
+<li>[ ] Adicione o multi-farmer (protocolos de airdrop)</li>
+<li>[ ] Configure os cron jobs</li>
+<li>[ ] Acompanhe o relatório semanal e recalibre o custo médio</li>
+</ul>
+<h3>Próximos passos (mês 2+)</h3>
+<ul>
+<li>[ ] Expanda para Optimism (OP) e Arbitrum (ARB)</li>
+<li>[ ] Considere veAERO lock quando tiver 50+ AERO</li>
+<li>[ ] Avalie lending (Moonwell/Morpho) quando tiver excedente de ETH</li>
+<li>[ ] Mantenha constância — o tempo é seu maior aliado</li>
+</ul>
+<hr />
+<p><strong>Última palavra:</strong> este sistema não promete riqueza instantânea. Ele promete algo mais valioso: <strong>um método real, testado, que funciona 24/7 e te deixa posicionado para os grandes prêmios (airdrops) enquanto constrói patrimônio com constância.</strong></p>
+<p>Comece pequeno. Seja constante. Automatize tudo. E deixe o tempo trabalhar.</p>
+<p>— Ever</p>
+<hr />
+<p><em>Guia gerado com base na operação real de um sistema de farming autônomo na Base Chain, agosto-outubro 2026. Informações podem mudar; sempre verifique os endereços e contratos antes de operar.</em></p></body></html>

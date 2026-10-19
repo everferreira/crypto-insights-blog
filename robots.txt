@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://everferreira.github.io/crypto-insights-blog/sitemap.xml
