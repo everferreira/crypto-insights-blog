@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Renda Cripto Autônoma do Zero — guia prático com código real para montar seu sistema de farming automático, take-profit e qualificação para airdrops na Base.">
-<title>Renda Cripto Autônoma do Zero — Guia Completo | Crypto Insights</title>
+<meta name="description" content="Automação Cripto com Python e Web3 — guia técnico de 14 capítulos: arquitetura de bots on-chain, rotação de RPCs, state machine de take-profit, cron jobs idempotentes e auditoria de gas com SQLite.">
+<title>Automação Cripto com Python e Web3 — Guia Técnico | Crypto Insights</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; max-width:800px; margin:0 auto; padding:20px; background:#0d1117; color:#c9d1d9; line-height:1.7; }
@@ -13,40 +13,47 @@ h2 { color:#58a6ff; margin:26px 0 12px; border-bottom:1px solid #30363d; padding
 a { color:#58a6ff; text-decoration:none; }
 .cta { background:#238636; color:#fff; display:inline-block; padding:16px 32px; border-radius:8px; font-weight:bold; font-size:1.1em; margin:14px 0; }
 .cta:hover { background:#2ea043; text-decoration:none; }
+.cta2 { background:#533483; color:#fff; display:inline-block; padding:14px 28px; border-radius:8px; font-weight:bold; margin:10px 0; }
 .price { font-size:1.6em; color:#58a6ff; font-weight:bold; }
 .old-price { color:#8b949e; text-decoration:line-through; }
 .subtitle { color:#8b949e; margin-bottom:20px; }
 .highlight { background:#1a2332; border:1px solid #30363d; border-radius:8px; padding:16px; margin:14px 0; }
+.bundle { background:#122a1a; border:1px solid #238636; border-radius:8px; padding:18px; margin:18px 0; }
 ul { margin-left:20px; }
 li { margin:6px 0; }
 .footer { margin-top:40px; padding-top:20px; border-top:1px solid #30363d; color:#8b949e; font-size:0.85em; text-align:center; }
 .badge { display:inline-block; background:#533483; color:#fff; padding:4px 12px; border-radius:20px; font-size:0.8em; margin-right:6px; }
+code { background:#21262d; padding:2px 6px; border-radius:4px; font-size:0.9em; }
 </style>
 </head>
 <body>
-<h1>Renda Cripto Autônoma do Zero</h1>
-<p class="subtitle">O guia prático de quem construiu um sistema de farming real com R$ 20 — sem ficar na frente do computador.</p>
+<h1>Automação Cripto com Python &amp; Web3</h1>
+<p class="subtitle">Da teoria à operação: engenharia de sistemas de automação on-chain — 14 capítulos técnicos, sem promessas de ganho.</p>
 
-<p><span class="badge">13 capítulos</span><span class="badge">Código real</span><span class="badge">PT-BR</span><span class="badge">Atualizado 2026</span></p>
+<p><span class="badge">14 capítulos</span><span class="badge">Código real</span><span class="badge">PT-BR</span><span class="badge">Casos de produção</span><span class="badge">2026</span></p>
+
+<h2>Para quem é este guia</h2>
+<p>Desenvolvedores e entusiastas de automação que querem construir sistemas próprios de operação on-chain de forma <strong>segura, auditável e sustentável</strong> — entendendo verdadeiramente cada camada, do RPC ao agendador.</p>
 
 <h2>O que você vai aprender</h2>
 <ul>
-<li>Como escolher blockchain e carteira certas para começar do zero</li>
-<li>O motor do farming: swaps automáticos com ciclo completo de compra e venda</li>
-<li>Como construir seu robô de farming passo a passo (Python + web3)</li>
-<li>O sistema de take-profit que protege seu capital e realiza lucro</li>
-<li>Multi-chain: expandindo para Optimism, Arbitrum e Scroll</li>
-<li>Airdrops: como se qualificar de verdade (sem sybil, sem gambiarra)</li>
-<li>Automatização total com cron jobs — opera 24/7 sem você</li>
-<li>Gas, RPCs e erros comuns: as armadilhas que quebram robôs</li>
-<li>Métricas reais do primeiro mês: o que esperar, sem promessa vazia</li>
+<li>Arquitetura em camadas de um sistema de automação on-chain</li>
+<li>Segurança de chaves privadas: criptografia local, permissões e .gitignore</li>
+<li>Rotação de RPCs e tratamento de rate limits (403/429) — com caso real</li>
+<li>Swap programático com simulação <code>eth_call</code> antes de gastar gas</li>
+<li>Lógica de decisão: reservas intocáveis, gatilhos e limites</li>
+<li>State machine de take-profit e a armadilha do custo médio preso</li>
+<li>Cron jobs idempotentes operando 24/7 no WSL/Linux</li>
+<li>Ledger SQLite: auditoria completa de gas e valores por transação</li>
+<li>Multi-chain sem quebrar: configuração por rede, falha isolada</li>
+<li>Tabela de depuração: os 7 erros clássicos e suas soluções</li>
 </ul>
 
-<h2>Por que este guia é diferente</h2>
-<div class="highlight">Não é teoria. É a documentação de uma operação real: <strong>175+ transações on-chain, 26,5 AERO acumulados, take-profit realizando vendas automáticas</strong> — com os erros, correções e a lógica exata de decisão. Você recebe o código, não um resumo vago.</div>
+<h2>Conteúdo técnico, sem hype</h2>
+<div class="highlight">Este guia foi escrito a partir de uma operação real: <strong>230+ transações on-chain, 15+ cron jobs automatizados, ledger SQLite de gas em produção</strong>. Cada capítulo documenta arquitetura, código e os erros reais que precisaram ser corrigidos — incluindo o bug do RPC 403 que derrubou leituras de saldo, e a state machine de take-profit que ficou presa por custo médio desatualizado. Nada de promessas de retorno: o foco é engenharia.</div>
 
 <h2>Investimento</h2>
-<p><span class="old-price">R$ 97</span> <span class="price">R$ 29,90</span> <span style="color:#8b949e">(lançamento)</span></p>
+<p><span class="old-price">R$ 97</span> <span class="price">R$ 39,90</span> <span style="color:#8b949e">(lançamento)</span></p>
 <p style="color:#8b949e">Pagamento único. Acesso imediato. Atualizações incluídas.</p>
 
 <div class="highlight" style="text-align:center">
@@ -54,17 +61,26 @@ li { margin:6px 0; }
 <p style="font-size:0.85em; color:#8b949e; margin-top:8px">Compra segura via Hotmart — acesso imediato no e-mail</p>
 </div>
 
+<div class="bundle">
+<h3 style="color:#58a6ff; margin-top:0;">📦 PACOTE COMPLETO — Guia + Starter Kit de Código</h3>
+<p>Junto com o e-book, receba o <strong>python-web3-automation-kit.zip</strong>: templates reutilizáveis e prontos para usar — rotação de RPCs, state machine de take-profit, módulo ledger SQLite, <code>.env.example</code> e README de instalação. Sem chaves, sem dados sensíveis: apenas código limpo e documentado.</p>
+<p><span class="old-price">R$ 97</span> <span class="price">R$ 69,90</span></p>
+<p style="text-align:center; margin-top:10px">
+<a class="cta" href="https://pay.hotmart.com/SEU_CODIGO_BUNDLE_AQUI" target="_blank" rel="noopener">QUERO O PACOTE COMPLETO →</a>
+</p>
+</div>
+
 <h2>Garantia</h2>
 <p>7 dias de garantia incondicional. Se não servir para você, devolvemos 100% do valor. Sem perguntas.</p>
 
 <h2>Perguntas frequentes</h2>
-<p><strong>Preciso saber programar?</strong> Não — o guia ensina do zero, com os comandos prontos. Noções básicas ajudam, mas não são pré-requisito.</p>
-<p><strong>Quanto preciso investir?</strong> R$ 20-50 para começar e entender o fluxo. Você decide o ritmo.</p>
-<p><strong>Quanto tempo por dia?</strong> Zero, depois de configurado. O sistema roda sozinho via agendador.</p>
-<p><strong>Garante lucro?</strong> Não. Ninguém honesto garante. O guia te dá método, disciplina e posicionamento — o mercado faz o resto.</p>
+<p><strong>Preciso saber programar?</strong> Este é um guia técnico: noções de Python ajudam (o guia usa Python 3 + web3.py). Todos os exemplos são explicados passo a passo.</p>
+<p><strong>Funciona em Windows/WSL?</strong> Sim — a operação real foi construída e testada em WSL (Windows Subsystem for Linux) com cron jobs.</p>
+<p><strong>Preciso ter fundos em cripto para testar?</strong> Muitos capítulos (RPCs, segurança, ledger, arquitetura) funcionam só com leitura e testnets. Operações de envio exigem saldo, mas o guia ensina simulação antes de gastar gas.</p>
+<p><strong>Garante lucro?</strong> Não. Nenhum guia honesto garante. O material ensina engenharia de sistemas — você decide como e onde operar.</p>
 
 <div class="footer">
-<p>© 2026 Crypto Insights — Conteúdo informativo, não é recomendação de investimento.</p>
+<p>© 2026 Crypto Insights — Conteúdo educacional técnico, não é recomendação de investimento.</p>
 </div>
 </body>
 </html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ferramentas e infraestrutura recomendadas para automação on-chain: VPS Linux para bots 24/7, RPCs dedicados e exchanges confiáveis — com explicações técnicas honestas.">
+<meta name="keywords" content="VPS, automação cripto, RPC, bot python, web3, hosting, exchanges">
+<meta name="google-site-verification" content="GA_VERIFICATION_PLACEHOLDER">
+<title>Ferramentas &amp; Infraestrutura Recomendada | Crypto Insights</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; max-width:850px; margin:0 auto; padding:20px; background:#0d1117; color:#c9d1d9; line-height:1.7; }
+h1 { color:#58a6ff; font-size:2em; margin-bottom:10px; }
+h2 { color:#58a6ff; margin:28px 0 12px; border-bottom:1px solid #30363d; padding-bottom:8px; }
+a { color:#58a6ff; text-decoration:none; }
+a:hover { text-decoration:underline; }
+.subtitle { color:#8b949e; margin-bottom:20px; }
+.card { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:18px; margin:14px 0; }
+.card h3 { color:#58a6ff; margin-bottom:8px; }
+.tag { display:inline-block; background:#21262d; border:1px solid #30363d; padding:3px 10px; border-radius:16px; font-size:0.8em; margin-right:6px; color:#8b949e; }
+.aff { display:inline-block; background:#21262d; border:1px solid #30363d; padding:6px 14px; border-radius:6px; margin-top:10px; }
+.aff:hover { border-color:#58a6ff; text-decoration:none; }
+.note { background:#1a2332; border-left:4px solid #533483; padding:12px 16px; margin:14px 0; color:#8b949e; font-size:0.9em; }
+.footer { margin-top:40px; padding-top:20px; border-top:1px solid #30363d; color:#8b949e; font-size:0.85em; text-align:center; }
+</style>
+</head>
+<body>
+<h1>Ferramentas &amp; Infraestrutura Recomendada</h1>
+<p class="subtitle">O hardware e os serviços que fazem sentido (ou não) para automação on-chain — com o porquê técnico de cada escolha.</p>
+
+<div class="note">
+⚠️ <strong>Transparência:</strong> os links abaixo podem ser de afiliados (ganho comissão sem custo extra para você). As recomendações são técnicas e independentes — nunca recomendo algo que eu não usaria.
+</div>
+
+<h2>1. Onde rodar seus bots (o mais importante)</h2>
+
+<div class="card">
+<h3>💻 VPS Linux 24/7 — o caminho profissional</h3>
+<p>Rodar automação no seu notebook tem um problema estrutural: <strong>quando ele desliga, seus cron jobs param</strong> — e perdem janelas de oportunidade. Uma VPS (máquina virtual na nuvem) resolve: fica ligada 24/7, com energia e internet estáveis.</p>
+<p><span class="tag">Por que VPS &gt; notebook</span> disponibilidade contínua, IP dedicado, sem depender de você lembrar de deixar a máquina ligada.</p>
+<p><span class="tag">Custo justo</span> US$ 4-8/mês em planos entry (2 GB RAM é suficiente para Python + web3 + cron).</p>
+<p><span class="tag">Requisito real</span> Linux (Ubuntu/Debian), 1-2 vCPU, 2 GB RAM, 20 GB SSD.</p>
+<a class="aff" href="SEU_LINK_AFILIADO_VPS_1" target="_blank" rel="noopener nofollow">👉 Ver VPS recomendada (Hostinger) — plano a partir de US$ 4/mês</a><br>
+<a class="aff" href="SEU_LINK_AFILIADO_VPS_2" target="_blank" rel="noopener nofollow">👉 Alternativa (DigitalOcean) — droplets sob demanda</a>
+</div>
+
+<div class="card">
+<h3>🖥️ Se quer começar no notebook primeiro</h3>
+<p>Perfeitamente válido para aprender e operar com valores pequenos. O que você precisa garantir:</p>
+<ul>
+<li>Desligar o modo de suspensão (ou o cron "perde" os horários)</li>
+<li>Redundância: jobs idempotentes que rodam em lote na volta</li>
+<li>Backup do estado e do ledger</li>
+</ul>
+<p><span class="tag">Quando migrar para VPS</span> quando o volume de operações e o valor em jogo justificarem os US$ 4/mês.</p>
+</div>
+
+<h2>2. RPCs: a rede de conexão dos seus scripts</h2>
+<div class="card">
+<p>Seu bot conversa com a blockchain via RPC. RPCs públicos são grátis mas caem (429/403). Para operação séria:</p>
+<ul>
+<li><strong>Rotação de RPCs públicos</strong> — padrão do nosso guia (grátis, primeira camada)</li>
+<li><strong>RPC dedicado privado</strong> — mais estável, com rate limit alto; justifica quando o bot opera com frequência</li>
+<li><strong>Node próprio</strong> — o padrão ouro, mas exige VPS robusta; overkill para automação pequena/média</li>
+</ul>
+<a class="aff" href="SEU_LINK_AFILIADO_RPC" target="_blank" rel="noopener nofollow">👉 Ver provedores de RPC dedicado (Alchemy/Infura/Chainstack)</a>
+</div>
+
+<h2>3. Exchanges para movimentar fundos</h2>
+<div class="card">
+<h3>🏦 Onde converter e operar com liquidez</h3>
+<p>Para quem está no Brasil: a escolha da exchange importa para custo (spread), PIX e segurança. Sugerimos comparar:</p>
+<ul>
+<li><strong>Binance</strong> — liquidez global, PIX no Brasil, programa de indicação que paga % das taxas</li>
+<li><strong>OKX</strong> — alternativa forte, boas taxas, especialmente para operação via API</li>
+<li><strong>Exchanges brasileiras</strong> — mais simples para PIX, spread maior em geral</li>
+</ul>
+<p><span class="tag">Para automação via API</span> Binance e OKX têm APIs maduras (python-ccxt) — as brasileiras são limitadas nesse ponto.</p>
+<a class="aff" href="SEU_LINK_AFILIADO_BINANCE" target="_blank" rel="noopener nofollow">👉 Criar conta na Binance via indicação</a><br>
+<a class="aff" href="SEU_LINK_AFILIADO_OKX" target="_blank" rel="noopener nofollow">👉 Criar conta na OKX via indicação</a>
+</div>
+
+<h2>4. Segurança dos seus fundos</h2>
+<div class="card">
+<h3>🔐 Hardware wallet (o guardião final)</h3>
+<p>Se o valor em jogo crescer, uma hardware wallet (Ledger/Trezor) mantém a chave privada num chip físico — imune a malwares do computador. NUNCA guarde chave de valor alto em arquivo de texto.</p>
+<a class="aff" href="SEU_LINK_AFILIADO_LEDGER" target="_blank" rel="noopener nofollow">👉 Ver hardware wallets (Ledger)</a>
+</div>
+
+<div class="note">
+📘 <strong>Quer a arquitetura completa?</strong> O guia <a href="ebook.html">Automação Cripto com Python e Web3</a> documenta como montar tudo isso — RPCs, ledger, cron jobs, multi-chain — com código e casos reais.
+</div>
+
+<div class="footer">
+<p>© 2026 Crypto Insights — Conteúdo educacional técnico, não é recomendação de investimento. Links de afiliado podem gerar comissão sem custo extra para você.</p>
+</div>
+</body>
+</html>
